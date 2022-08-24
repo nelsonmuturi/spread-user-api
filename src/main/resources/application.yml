@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/usersdb?charSet=LATIN1
+    username: ${MYSQL_USERDB_USERNAME:myname}
+    password: ${MYSQL_INVENTORY_PASSWORD:mypassword}
+    initialization-mode: always
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+
+app:
+  security:
+    jwt:
+      keystore-location: jwt-keystore.jks
+      keystore-password: ${JWT_KEYSTORE_PASSWORD:keystorepassword}
+      key-alias: jwt-sign-key
+      private-key-passphrase: ${PRIVATE_KEY_PASSPHRASE:keystorepassphrase}

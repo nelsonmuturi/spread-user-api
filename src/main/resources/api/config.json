@@ -1,0 +1,18 @@
+{
+  "library": "spring-mvc",
+  "dateLibrary": "java8",
+  "hideGenerationTimestamp": true,
+  "modelPackage": "com.spread.users.rest.model",
+  "apiPackage": "com.spread.users.rest",
+  "invokerPackage": "com.spread.users.rest",
+  "serializableModel": true,
+  "useTags": true,
+  "useGzipFeature" : true,
+  "hateoas": false,
+  "withXml": false,
+  "interfaceOnly": true,
+  "importMappings": {
+    "ResourceSupport":"org.springframework.hateoas.RepresentationModel",
+    "Link": "org.springframework.hateoas.Link"
+  }
+}
