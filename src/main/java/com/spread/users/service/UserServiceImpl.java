@@ -62,7 +62,6 @@ public class UserServiceImpl implements UserService{
                         () -> new InvalidRefreshTokenException("invalid token"));
     }
 
-    @Transactional
     @Override
     public SignedInUser getSignedInUser(User user) {
         return createSignedUserWithRefreshToken(user);
@@ -98,12 +97,11 @@ public class UserServiceImpl implements UserService{
 
     private String createRefreshToken(User user) {
         // check if a token already exists for user
-        var foundTaken =
+        var foundToken =
                 refreshTokenRepository.findByUserId(user.getId());
 
-        // if exists, return it
-        if (foundTaken.isPresent())
-            return foundTaken.get().getToken().getValue();
+        // if exists, delete it
+        foundToken.ifPresent(refreshTokenRepository::delete);
 
         // otherwise generate a new one
         String token = RandomHolder.randomKey(128);

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.spread</groupId>
 	<artifactId>users</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>users</name>
 	<description>Spread Users</description>
 

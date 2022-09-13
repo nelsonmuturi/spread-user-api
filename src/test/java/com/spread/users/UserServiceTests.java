@@ -95,8 +95,8 @@ public class UserServiceTests {
     }
 
     @Test
-    @DisplayName("creating an new user succeeds if the user does not already exist")
-    public void creating_an_new_user_succeeds_if_the_user_does_not_already_exist() {
+    @DisplayName("creating a new user succeeds if the user does not already exist")
+    public void creating_a_new_user_succeeds_if_the_user_does_not_already_exist() {
 
         when(userRepository.save(any(com.spread.users.model.User.class)))
                 .thenReturn(userEntity);

@@ -1,9 +1,12 @@
+server:
+  port: 8201
+
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/usersdb?charSet=LATIN1
-    username: ${MYSQL_USERDB_USERNAME:myname}
-    password: ${MYSQL_INVENTORY_PASSWORD:mypassword}
+    url: jdbc:mysql://${MYSQL_USERS_HOST:localhost}:3306/users?charSet=LATIN1
+    username: ${MYSQL_USER_USERNAME:nmuturi}
+    password: ${MYSQL_USER_PASSWORD:d@indi2sWella}
     initialization-mode: always
   jpa:
     hibernate:
@@ -16,7 +19,7 @@ spring:
 app:
   security:
     jwt:
-      keystore-location: jwt-keystore.jks
-      keystore-password: ${JWT_KEYSTORE_PASSWORD:keystorepassword}
+      keystore-location: jwt-keystore3.jks
+      keystore-password: ${JWT_KEYSTORE_PASSWORD:92hYkkGZ5EeLkLof}
       key-alias: jwt-sign-key
-      private-key-passphrase: ${PRIVATE_KEY_PASSPHRASE:keystorepassphrase}
+      private-key-passphrase: ${JWT_KEYSTORE_PASSPHRASE:92hYkkGZ5EeLkLof}

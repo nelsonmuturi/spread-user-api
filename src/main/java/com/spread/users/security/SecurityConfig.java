@@ -72,6 +72,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/v1/users/test").permitAll()
+                .mvcMatchers(HttpMethod.GET, LIVENESS).permitAll()
+                .mvcMatchers(HttpMethod.GET, READINESS).permitAll()
                 .antMatchers(HttpMethod.POST, TOKEN_URL).permitAll()
                 .antMatchers(HttpMethod.POST, ANONYMOUS_TOKEN_URL).permitAll()
                 .antMatchers(HttpMethod.DELETE, TOKEN_URL).permitAll()
@@ -95,12 +97,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new
                 CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
         configuration.setAllowedMethods(Arrays.asList("HEAD",
                 "GET", "PUT", "POST", "DELETE", "PATCH"));
         // For CORS response headers
         configuration.setAllowedOrigins(Arrays.asList(
-                "http://localhost:3000", "http://localhost:3001", "https://merchant.spread.co.ke", "https://spread.co.ke"));
+                "http://localhost:3000", "http://localhost:3001", "https://stockcontrol.spread.co.ke", "https://spread.co.ke"));
         configuration.addAllowedHeader("*");
         configuration.setAllowedMethods(Arrays.asList(
                 "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"));

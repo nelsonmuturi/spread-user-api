@@ -18,9 +18,13 @@ public class Constants {
     public static final String AUTHORIZATION = "Authorization";
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String SECRET_KEY = "SECRET_KEY";
-    public static final long EXPIRATION_TIME = 3_600_000;   // represents 60 mins.
+    public static final long EXPIRATION_TIME = 21_600_000;   // represents 60 mins.
     public static final String ROLE_CLAIM = "roles";
     public static final String AUTHORITY_PREFIX = "ROLE_";
+    // ---------------------------------------------------------------------------
+    // k8s prob functions
+    public static final String LIVENESS = "/users/liveness";
+    public static final String READINESS = "/users/readiness";
     // ---------------------------------------------------------------------------
     public static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 }

@@ -33,7 +33,7 @@ public class RefreshToken implements Serializable {
     @javax.persistence.Id
     private IdChar id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="userId",
             referencedColumnName = "id")
     private User user;
