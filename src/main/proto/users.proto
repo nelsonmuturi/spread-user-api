@@ -1,0 +1,16 @@
+syntax = "proto3";
+package com.spread.users.grpc;
+
+service UserRpcService {
+  rpc findUserById(UserId) returns (User);
+}
+
+message UserId {
+  string id = 1;
+}
+
+
+message User {
+  string id = 1;
+  string name = 2;
+}

@@ -9,6 +9,8 @@ import java.util.Optional;
 
 public interface UserService {
 
+    public Optional<User> findById(String id);
+
     public Optional<User> findByName(Name name);
     public Optional<SignedInUser> createUser(User user);
     public Optional<SignedInUser> getAccessToken(RefreshToken refreshToken);

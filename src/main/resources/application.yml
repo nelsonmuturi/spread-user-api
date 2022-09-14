@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_USERS_HOST:localhost}:3306/users?charSet=LATIN1
+    url: jdbc:mysql://${MYSQL_USERS_HOST:localhost}:3306/usersdb?charSet=LATIN1
     username: ${MYSQL_USER_USERNAME:nmuturi}
     password: ${MYSQL_USER_PASSWORD:d@indi2sWella}
     initialization-mode: always
@@ -23,3 +23,8 @@ app:
       keystore-password: ${JWT_KEYSTORE_PASSWORD:92hYkkGZ5EeLkLof}
       key-alias: jwt-sign-key
       private-key-passphrase: ${JWT_KEYSTORE_PASSPHRASE:92hYkkGZ5EeLkLof}
+
+spread:
+  grpc:
+    port: 5216
+    jwt-signing-key: ${GRPC_USERS_SIGNING_KEY:o5D0fD2zv0W2glhVnbD9}

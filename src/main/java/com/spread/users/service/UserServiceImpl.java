@@ -2,6 +2,7 @@ package com.spread.users.service;
 
 import com.spread.users.exception.GenericAlreadyExistsException;
 import com.spread.users.exception.InvalidRefreshTokenException;
+import com.spread.users.model.Id;
 import com.spread.users.model.User;
 import com.spread.users.model.primitive.CreationDate;
 import com.spread.users.model.primitive.IdChar;
@@ -35,6 +36,11 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
         this.refreshTokenRepository = refreshTokenRepository;
         this.jwtManager = jwtManager;
+    }
+
+    @Override
+    public Optional<User> findById(String id) {
+        return userRepository.findById(new Id(new IdChar(id)));
     }
 
     @Override

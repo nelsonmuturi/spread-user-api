@@ -1,6 +1,11 @@
 package com.spread.users.service;
 
+import io.grpc.Context;
+import io.grpc.Metadata;
+
 import java.time.format.DateTimeFormatter;
+
+import static io.grpc.Metadata.ASCII_STRING_MARSHALLER;
 
 public class Constants {
 
@@ -21,6 +26,11 @@ public class Constants {
     public static final long EXPIRATION_TIME = 21_600_000;   // represents 60 mins.
     public static final String ROLE_CLAIM = "roles";
     public static final String AUTHORITY_PREFIX = "ROLE_";
+    // ---------------------------------------------------------------------------
+    // grpc constants
+    public static final String BEARER_TYPE = "Bearer";
+    public static final Metadata.Key<String> AUTHORIZATION_METADATA_KEY = Metadata.Key.of("Authorization", ASCII_STRING_MARSHALLER);
+    public static final Context.Key<String> CLIENT_ID_CONTEXT_KEY = Context.key("clientId");
     // ---------------------------------------------------------------------------
     // k8s prob functions
     public static final String LIVENESS = "/users/liveness";
